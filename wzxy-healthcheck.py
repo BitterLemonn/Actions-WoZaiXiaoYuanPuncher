@@ -52,6 +52,15 @@ class WoZaiXiaoYuanPuncher:
             "province": os.environ['WZXY_PROVINCE'],
             "township": os.environ['WZXY_TOWNSHIP'],
             "street": os.environ['WZXY_STREET'],
+            "areacode": os.environ["WZXY_AREACODE"],
+            "towncode": os.environ["WZXY_TOWNCODE"],
+            "citycode": os.environ["WZXY_CITYCODE"],
+            "timestampHeader": cur_time,
+            "signatureHeader": hashlib.sha256(
+                f"{os.environ['WZXY_PROVINCE']}_{cur_time}_{os.environ['WZXY_CITY']}".encode(
+                    "utf-8"
+                )
+            ).hexdigest(),
         }
         data = urlencode(sign_data)
         self.session = requests.session()
