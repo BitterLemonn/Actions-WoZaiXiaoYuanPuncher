@@ -54,6 +54,7 @@ class WoZaiXiaoYuanPuncher:
             "township": os.environ['WZXY_TOWNSHIP'],
             "street": os.environ['WZXY_STREET'],
             "citycode": os.environ["WZXY_CITYCODE"],
+            "towncode": os.environ["WZXY_TOWNCODE"],
             "timestampHeader": cur_time,
             "signatureHeader": hashlib.sha256(
                 f"{os.environ['WZXY_PROVINCE']}_{cur_time}_{os.environ['WZXY_CITY']}".encode(
